@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title Sign Out Board
+    %meta{ :name => "description", :content => "A Sign Out Board"}
+    %meta{ :name => "author", :content => "Jason Scott"}
+    %script{:src=>"http://code.jquery.com/jquery-1.8.3.min.js"}
+    %script{:src=>"/js/bootstrap.min.js"}
+    %script{:src=>"/js/todo_list.js"}
+    %link(rel="stylesheet" href="/css/bootstrap.css")
+    %link(rel="stylesheet" href="/css/bootstrap-responsive.min.css")
+        
+    / HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file:
+    /[if lt IE 9]
+      %script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{:href=>"/"}Sign Out Board
+    .container
+      %h1= @title
+      = yield
+

@@ -1,0 +1,31 @@
+%br
+%br
+%table.table
+  %tr
+    %td
+      = @windows_user
+%table.table
+  %tbody
+  - @staff.each do |staff|
+    - if staff[:status]
+      %tr.error{:id => "#{ staff[:id].to_s }"}
+        %td
+          %i.icon-remove
+        %td
+          %a{:href => "/email/#{staff[:email]}"}#{staff[:fname] + " " + staff[:lname]}  
+        %td
+          %a.btn.status{:href => "#"}
+            Sign In   
+          %a.btn.btn-danger{ :href => "/delete/#{staff[:id]}"}Delete  
+    - else  
+      %tr.success{:id => "#{ staff[:id].to_s }"}
+        %td
+          %i.icon-ok
+        %td
+          %a{:href => "/email/#{staff[:email]}"}#{staff[:fname] + " " + staff[:lname]}
+        %td
+          %a.btn.status{:href => "#"}
+            Sign Out
+          %a.btn.btn-danger{ :href => "/delete/#{staff[:id]}"}Delete
+    
+%a.btn.btn-primary{:href => "/adusers"}Add Staff

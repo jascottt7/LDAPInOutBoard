@@ -1,0 +1,6 @@
+<p>Are you sure you want to delete:</p>
+<blockquote><p><%= @staff.fname + " " + @staff.lname %></p></blockquote>
+<form action="/delete/<%= @staff.id %>" method="POST">
+  <button type="submit" class="btn btn-primary" name="ok">OK</button>
+  <button type="submit" class="btn" name="cancel">Cancel</button>
+</form>

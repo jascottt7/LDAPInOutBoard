@@ -1,0 +1,18 @@
+- emails = []
+- @staff.each do |staff| 
+  - emails.push(staff[:email]) 
+
+%table.table.table-hover
+  - @b.each do |attribute, values|
+    - unless emails.include?(values[:email][0])
+      %tr  
+        %form.form-inline{ :action=>"/new", :method=>"POST" }
+          - fullname = values[:name][0]
+          %td
+            %input{ :type=>"text", :placeholder=>"First Name", :name=>"fname", :value=>"#{fullname.split(" ", 2)[0]}" }
+          %td
+            %input{ :type=>"text", :placeholder=>"Last Name", :name=>"lname", :value=>"#{fullname.split(" ", 2)[1]}" }
+          %td
+            %input{ :type=>"text", :placeholder=>"Email", :name=>"email", :size=>"65", :value=>"#{values[:email][0]}" }
+          %td
+            %button.btn{ :type=>"submit" }Post

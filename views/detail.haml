@@ -1,0 +1,13 @@
+%br
+%br
+-@b.each do |attribute, values|
+  - values.each do |name, value|
+    %b #{name.upcase}:
+    = value[0]
+    %br
+  %b MANAGER:
+  - unless @manager[:manager] == ""
+    -test2 = @manager[:manager].to_a
+    = test2[0].to_s.split(",")[0].gsub("CN=", "")
+  %br
+    %a.btn.btn-primary{ :href=>"/" }Back To SignOut Board
